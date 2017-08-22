@@ -1,0 +1,21 @@
+<section class="main-menu" 
+         ng-cloak>
+  <div class="logo">
+    <a ui-sref="main">
+      home
+    </a>
+  </div>
+  <div class="menu">
+    <ul>
+      <li ng-repeat="menuItem in headerCtrl.menuItems">
+        <a ui-sref="{{menuItem.url}}">{{menuItem.name}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="buttons">
+    <custom-button name="button.name"
+                   url="button.url"
+                   ng-repeat="button in headerCtrl.buttons">
+    </custom-button>
+  </div>
+</section>

@@ -1,0 +1,12 @@
+<section class="home" ng-cloak>
+<div class="tab-control">
+  <div class="tab-header">
+    {{$ctrl.title}}
+  </div>
+  <a ui-sref="{{tab.url}}"
+     ng-bind="tab.caption"
+     ng-class="tab.isActive"
+     ng-repeat="tab in $ctrl.tabs">
+  </a>
+  <ui-view name="tab"></ui-view>
+</div>

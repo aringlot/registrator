@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './app/app.js',
+  entry: ['babel-polyfill','./app/app.module.js'],
   module:{
     rules: [
         {
@@ -17,7 +17,10 @@ module.exports = {
     ]
   },
   resolve: {
-    modules : ['node_modules', 'bower_components']
+    modules: ['bower_components', 'node_modules'],
+    alias: {
+      registrator: path.resolve(__dirname, 'app/modules')
+    }
   },
   output: {
     filename: 'bundle.js',

@@ -1,0 +1,14 @@
+a.button {
+    border:1px solid green;
+    border-radius: 2px;
+    padding: 2px;
+    margin: 2px;
+}
+
+section.main-menu>div{
+    display: inline-block;
+}
+
+section.main-menu div.menu ul li{
+    display: inline;
+}
