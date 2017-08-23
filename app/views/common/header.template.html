@@ -8,7 +8,7 @@
   </div>
   <div class="menu">
     <ul>
-      <li ng-repeat="menuItem in VM.menuItems">
+      <li ng-repeat="menuItem in vm.menuItems">
         <a ui-sref="{{menuItem.url}}">{{menuItem.name|translate}}</a>
       </li>
     </ul>
@@ -16,15 +16,15 @@
   <div class="buttons">
     <custom-button name="button.name|translate"
                    url="button.url"
-                   ng-repeat="button in VM.buttons">
+                   ng-repeat="button in vm.buttons">
     </custom-button>
   </div>
   <div class="language">
     <a href="" 
-       ng-click="VM.selectLanguage('en')" translate="Language.En">
+       ng-click="vm.selectLanguage('en')" translate="Language.En">
     </a>
     <a href="" 
-       ng-click="VM.selectLanguage('de')" translate="Language.De">
+       ng-click="vm.selectLanguage('de')" translate="Language.De">
     </a>
   </div>
 </section>

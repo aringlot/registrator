@@ -9,7 +9,7 @@ const component = {
     },
     template: template,
     controller: Controller,
-    controllerAs: 'VM'
+    controllerAs: 'vm'
 };
 
 export default component;

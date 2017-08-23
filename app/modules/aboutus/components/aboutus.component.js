@@ -4,7 +4,7 @@ import template from 'views/aboutus/aboutus.template.html'
 const component = {
     template: template,
     controller: Controller,
-    controllerAs: 'VM'
+    controllerAs: 'vm'
 }
 
 export default component;

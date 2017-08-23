@@ -4,6 +4,6 @@ import template from 'views/home/home.template.html'
 const component = {
     template : template,
     controller: Controller,
-    controllerAs: 'VM'
+    controllerAs: 'vm'
 };
 export default component;

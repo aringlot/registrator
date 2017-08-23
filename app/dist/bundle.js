@@ -23403,11 +23403,17 @@ __webpack_require__(338);
 
 __webpack_require__(127);
 
-__webpack_require__(339);
+var _common = __webpack_require__(339);
 
-__webpack_require__(351);
+var _common2 = _interopRequireDefault(_common);
 
-__webpack_require__(357);
+var _aboutus = __webpack_require__(351);
+
+var _aboutus2 = _interopRequireDefault(_aboutus);
+
+var _home = __webpack_require__(357);
+
+var _home2 = _interopRequireDefault(_home);
 
 var _app = __webpack_require__(365);
 
@@ -23415,13 +23421,13 @@ var _app2 = _interopRequireDefault(_app);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_angular2.default.module('registratorApp', ['ui.router', 'pascalprecht.translate', 'ngCookies', 'common', 'aboutUs', 'home']).config(_app2.default).run(function ($state, $rootScope) {
+_angular2.default.module('registratorApp', ['ui.router', 'pascalprecht.translate', 'ngCookies', _common2.default.name, _aboutus2.default.name, _home2.default.name]).config(_app2.default).run(function ($state, $rootScope) {
     'ngInject';
 
     $state.go('main');
 
     $rootScope.$on('$translatePartialLoaderStructureChanged', function () {
-        $translate.refresh();
+        return $translate.refresh();
     });
 });
 
@@ -57799,6 +57805,10 @@ return 'pascalprecht.translate';
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _angular = __webpack_require__(49);
 
 var _angular2 = _interopRequireDefault(_angular);
@@ -57823,7 +57833,9 @@ var _common2 = _interopRequireDefault(_common);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_angular2.default.module('common', ['pascalprecht.translate']).component('customButton', _button2.default).component('header', _header2.default).component('tab', _tab2.default).config(_common2.default);
+var _module = _angular2.default.module('common', ['pascalprecht.translate']).component('customButton', _button2.default).component('header', _header2.default).component('tab', _tab2.default).config(_common2.default);
+
+exports.default = _module;
 
 /***/ }),
 /* 340 */
@@ -57854,7 +57866,7 @@ var component = {
     },
     template: _buttonTemplate2.default,
     controller: _button2.default,
-    controllerAs: 'VM'
+    controllerAs: 'vm'
 };
 
 exports.default = component;
@@ -57882,7 +57894,7 @@ exports.default = ButtonController;
 /* 342 */
 /***/ (function(module, exports) {
 
-module.exports = "<a class=\"button\"\r\n   ng-class=\"VM.customClass\"\r\n   ng-cloak\r\n   ui-sref=\"{{VM.url}}\">\r\n  {{VM.name}}\r\n</a>"
+module.exports = "<a class=\"button\"\r\n   ng-class=\"vm.customClass\"\r\n   ng-cloak\r\n   ui-sref=\"{{vm.url}}\">\r\n  {{vm.name}}\r\n</a>"
 
 /***/ }),
 /* 343 */
@@ -57908,7 +57920,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var component = {
     template: _headerTemplate2.default,
     controller: _header2.default,
-    controllerAs: "VM"
+    controllerAs: "vm"
 };
 
 exports.default = component;
@@ -58001,7 +58013,7 @@ exports.default = MenuItem;
 /* 346 */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"main-menu\" \r\n         ng-cloak>\r\n  <div class=\"logo\">\r\n    <a ui-sref=\"main\"\r\n       translate>\r\n      Common.Home\r\n    </a>\r\n  </div>\r\n  <div class=\"menu\">\r\n    <ul>\r\n      <li ng-repeat=\"menuItem in VM.menuItems\">\r\n        <a ui-sref=\"{{menuItem.url}}\">{{menuItem.name|translate}}</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n  <div class=\"buttons\">\r\n    <custom-button name=\"button.name|translate\"\r\n                   url=\"button.url\"\r\n                   ng-repeat=\"button in VM.buttons\">\r\n    </custom-button>\r\n  </div>\r\n  <div class=\"language\">\r\n    <a href=\"\" \r\n       ng-click=\"VM.selectLanguage('en')\" translate=\"Language.En\">\r\n    </a>\r\n    <a href=\"\" \r\n       ng-click=\"VM.selectLanguage('de')\" translate=\"Language.De\">\r\n    </a>\r\n  </div>\r\n</section>"
+module.exports = "<section class=\"main-menu\" \r\n         ng-cloak>\r\n  <div class=\"logo\">\r\n    <a ui-sref=\"main\"\r\n       translate>\r\n      Common.Home\r\n    </a>\r\n  </div>\r\n  <div class=\"menu\">\r\n    <ul>\r\n      <li ng-repeat=\"menuItem in vm.menuItems\">\r\n        <a ui-sref=\"{{menuItem.url}}\">{{menuItem.name|translate}}</a>\r\n      </li>\r\n    </ul>\r\n  </div>\r\n  <div class=\"buttons\">\r\n    <custom-button name=\"button.name|translate\"\r\n                   url=\"button.url\"\r\n                   ng-repeat=\"button in vm.buttons\">\r\n    </custom-button>\r\n  </div>\r\n  <div class=\"language\">\r\n    <a href=\"\" \r\n       ng-click=\"vm.selectLanguage('en')\" translate=\"Language.En\">\r\n    </a>\r\n    <a href=\"\" \r\n       ng-click=\"vm.selectLanguage('de')\" translate=\"Language.De\">\r\n    </a>\r\n  </div>\r\n</section>"
 
 /***/ }),
 /* 347 */
@@ -58084,6 +58096,10 @@ exports.default = config;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _angular = __webpack_require__(49);
 
 var _angular2 = _interopRequireDefault(_angular);
@@ -58102,7 +58118,9 @@ var _aboutus4 = _interopRequireDefault(_aboutus3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_angular2.default.module('aboutUs', ['ui.router', 'pascalprecht.translate']).component('aboutUs', _aboutus2.default).config(_aboutus4.default);
+var _module = _angular2.default.module('aboutUs', ['ui.router', 'pascalprecht.translate']).component('aboutUs', _aboutus2.default).config(_aboutus4.default);
+
+exports.default = _module;
 
 /***/ }),
 /* 352 */
@@ -58128,7 +58146,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var component = {
     template: _aboutusTemplate2.default,
     controller: _aboutus2.default,
-    controllerAs: 'VM'
+    controllerAs: 'vm'
 };
 
 exports.default = component;
@@ -58176,7 +58194,7 @@ exports.default = AboutUsController;
 /* 354 */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"about-us\" \r\n         ng-cloak>\r\n  <h3 translate=\"AboutUs.Title\">\r\n  </h3>\r\n  <div class=\"descriptoin\"\r\n       translate=\"AboutUs.Description\">\r\n  </div>\r\n  <div class=\"credential\">\r\n    {{VM.author}} {{VM.created|date}}\r\n  </div>\r\n</section>"
+module.exports = "<section class=\"about-us\" \r\n         ng-cloak>\r\n  <h3 translate=\"AboutUs.Title\">\r\n  </h3>\r\n  <div class=\"descriptoin\"\r\n       translate=\"AboutUs.Description\">\r\n  </div>\r\n  <div class=\"credential\">\r\n    {{vm.author}} {{vm.created|date}}\r\n  </div>\r\n</section>"
 
 /***/ }),
 /* 355 */
@@ -58235,6 +58253,10 @@ exports.default = [aboutUs];
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _angular = __webpack_require__(49);
 
 var _angular2 = _interopRequireDefault(_angular);
@@ -58259,7 +58281,9 @@ var _home4 = _interopRequireDefault(_home3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_angular2.default.module('home', ['ui.router', 'pascalprecht.translate']).component('home', _home2.default).factory('TabService', _tab2.default).config(_home4.default);
+var _module = _angular2.default.module('home', ['ui.router', 'pascalprecht.translate']).component('home', _home2.default).factory('TabService', _tab2.default).config(_home4.default);
+
+exports.default = _module;
 
 /***/ }),
 /* 358 */
@@ -58285,7 +58309,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var component = {
     template: _homeTemplate2.default,
     controller: _home2.default,
-    controllerAs: 'VM'
+    controllerAs: 'vm'
 };
 exports.default = component;
 
@@ -58383,7 +58407,7 @@ exports.default = TabModel;
 /* 361 */
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"home\" ng-cloak>\r\n<div class=\"tab-control\">\r\n  <div class=\"tab-header\" \r\n       translate>\r\n      Home.Tab.Title\r\n  </div>\r\n  <a class=\"tab-caption\"\r\n     ui-sref=\"{{tab.url}}\"\r\n     ui-sref-active=\"active\"\r\n     ng-bind=\"tab.caption|translate\"\r\n     ng-repeat=\"tab in VM.tabs\">\r\n  </a>\r\n  <ui-view></ui-view>\r\n</div>\r\n"
+module.exports = "<section class=\"home\" ng-cloak>\r\n<div class=\"tab-control\">\r\n  <div class=\"tab-header\" \r\n       translate>\r\n      Home.Tab.Title\r\n  </div>\r\n  <a class=\"tab-caption\"\r\n     ui-sref=\"{{tab.url}}\"\r\n     ui-sref-active=\"active\"\r\n     ng-bind=\"tab.caption|translate\"\r\n     ng-repeat=\"tab in vm.tabs\">\r\n  </a>\r\n  <ui-view></ui-view>\r\n</div>\r\n"
 
 /***/ }),
 /* 362 */
@@ -58484,7 +58508,8 @@ exports.default = [tab1, tab2];
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-function config($stateProvider, $translateProvider, $translatePartialLoaderProvider) {
+function config($stateProvider, $translateProvider) {
+    'ngInject';
 
     var helloState = {
         name: 'main',
@@ -58500,7 +58525,6 @@ function config($stateProvider, $translateProvider, $translatePartialLoaderProvi
     }).preferredLanguage('en').useLoaderCache(true).useCookieStorage();
 }
 
-config.$inject = ['$stateProvider', '$translateProvider'];
 exports.default = config;
 
 /***/ })

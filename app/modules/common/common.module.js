@@ -6,9 +6,11 @@ import headerComponent from 'common/components/header.component'
 import tabComponent from 'common/components/tab.component'
 import config from 'common/config/common.config'
 
-angular
+var module = angular
     .module('common', ['pascalprecht.translate'])
     .component('customButton', buttonComponent)
     .component('header', headerComponent)
     .component('tab', tabComponent)
     .config(config);
+
+export default module;
