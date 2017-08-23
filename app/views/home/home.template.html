@@ -1,13 +1,14 @@
 <section class="home" ng-cloak>
 <div class="tab-control">
-  <div class="tab-header">
-    {{$ctrl.title}}
+  <div class="tab-header" 
+       translate>
+      Home.Tab.Title
   </div>
   <a class="tab-caption"
      ui-sref="{{tab.url}}"
      ui-sref-active="active"
-     ng-bind="tab.caption"
-     ng-repeat="tab in $ctrl.tabs">
+     ng-bind="tab.caption|translate"
+     ng-repeat="tab in VM.tabs">
   </a>
   <ui-view></ui-view>
 </div>

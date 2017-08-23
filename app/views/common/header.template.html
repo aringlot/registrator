@@ -1,21 +1,30 @@
 <section class="main-menu" 
          ng-cloak>
   <div class="logo">
-    <a ui-sref="main">
-      home
+    <a ui-sref="main"
+       translate>
+      Common.Home
     </a>
   </div>
   <div class="menu">
     <ul>
-      <li ng-repeat="menuItem in headerCtrl.menuItems">
-        <a ui-sref="{{menuItem.url}}">{{menuItem.name}}</a>
+      <li ng-repeat="menuItem in VM.menuItems">
+        <a ui-sref="{{menuItem.url}}">{{menuItem.name|translate}}</a>
       </li>
     </ul>
   </div>
   <div class="buttons">
-    <custom-button name="button.name"
+    <custom-button name="button.name|translate"
                    url="button.url"
-                   ng-repeat="button in headerCtrl.buttons">
+                   ng-repeat="button in VM.buttons">
     </custom-button>
+  </div>
+  <div class="language">
+    <a href="" 
+       ng-click="VM.selectLanguage('en')" translate="Language.En">
+    </a>
+    <a href="" 
+       ng-click="VM.selectLanguage('de')" translate="Language.De">
+    </a>
   </div>
 </section>

@@ -1,11 +1,14 @@
 import angular from 'angular'
-import HomeController from './controllers/home.controller'
-import homeComponent from './components/home.component'
-import tabService from './services/tab.service'
-import config from './routes/route.config'
+import 'angular-ui-router'
+import 'angular-translate'
+import 'angular-translate-loader-partial'
 
-var module = angular.module('home', []);
-module.controller('HomeController', HomeController);
-module.component('home', homeComponent);
-module.factory('TabService', tabService);
-module.config(config);
+import homeComponent from 'home/components/home.component'
+import tabService from 'home/services/tab.service'
+import config from 'home/config/home.config'
+
+angular
+    .module('home', ['ui.router','pascalprecht.translate'])
+    .component('home', homeComponent)
+    .factory('TabService', tabService)
+    .config(config);
