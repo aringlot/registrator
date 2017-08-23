@@ -1,4 +1,4 @@
-var component = {
+const component = {
     bindings:{
         name: '<',
         url: '<',

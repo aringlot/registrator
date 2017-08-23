@@ -1,4 +1,4 @@
-var component = {
+const component = {
     templateUrl: './views/home/home.template.html',
     controller: 'HomeController',
 };

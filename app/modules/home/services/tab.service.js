@@ -1,14 +1,14 @@
-const _httpService = new WeakMap();
+function tabService($http){      
+    const getTabData = (id) => {
+        return $http.get('data/tab' + id + '.data').then(function(response){
+            return response.data;
+        });
+    }
 
-class TabService{
-    constructor($http){
-        _httpService.set(this, $http);
-    }
-    
-    getTabData(id){
-        return _httpService.get(this).get('data/tab' + id + '.data');
-    }
+    return {
+        getTabData : getTabData
+    };
 }
-TabService.$inject = ['$http'];
+tabService.$inject = ['$http'];
 
-export default TabService;
+export default tabService;

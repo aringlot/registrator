@@ -7,5 +7,11 @@ import './modules/home/home.module'
 
 import config from './app.config'
 
-var app = angular.module('registratorApp', ['ui.router','common', 'aboutUs', 'home']);
+var app = angular.module('registratorApp', ['ui.router', 'common', 'aboutUs', 'home']);
 app.config(config);
+app.run([
+    '$state',
+     function($state){
+        $state.go('main');
+     }
+ ]);

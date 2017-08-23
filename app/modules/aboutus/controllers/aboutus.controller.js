@@ -1,12 +1,13 @@
-export default class aboutUsController{
+class AboutUsController{
     constructor(){
-        var ctrl = this;
-
-        ctrl.$onInit = function(){
-            ctrl.author = 'Oleksandr Yershov';
-            ctrl.description = 'AboutUs.Description';
-            ctrl.created = new Date('2017-08-22');
-            ctrl.title = 'AboutUs.Title';
-        }
+        this.$onInit = () => this.onInit();
+    }
+    onInit() {
+        this.author = 'Oleksandr Yershov';
+        this.description = 'AboutUs.Description';
+        this.created = new Date('2017-08-22');
+        this.title = 'AboutUs.Title';
     }
 }
+
+export default AboutUsController

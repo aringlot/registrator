@@ -1,14 +1,23 @@
-const tab = {
-    name: 'tab',
-    url: '/tab{id}',
-    views:{
-        'tab':'tab'
-    },
+const tab1 = {
+    name: 'main.tab1',
+    url: 'tab1',
+    component: 'tab',
     resolve:{
-        content: function(TabService, $stateParams){
-            return TabService.getTabData($stateParams.id);
+        content: (TabService) => {
+            return TabService.getTabData('1');
         }
     }
 };
 
-export default [tab];
+const tab2 = {
+    name: 'main.tab2',
+    url: 'tab2',
+    component: 'tab',
+    resolve:{
+        content: (TabService) => { 
+            return TabService.getTabData('2');
+        }
+    }
+};
+
+export default [tab1, tab2];

@@ -3,6 +3,7 @@ a.button {
     border-radius: 2px;
     padding: 2px;
     margin: 2px;
+    text-decoration: none;
 }
 
 section.main-menu>div{
@@ -11,4 +12,22 @@ section.main-menu>div{
 
 section.main-menu div.menu ul li{
     display: inline;
+}
+
+section.home a.tab-caption{
+    border: 1px solid cadetblue;
+    border-radius: 4px;
+    padding: 2px;
+    margin: 1px;
+    text-decoration: none;
+}
+
+section.home a[ui-sref-active="active"]{
+    background-color: white;
+    color: green;
+}
+
+section.home  a[ui-sref-active="active"].active{
+    background-color: green;
+    color:  white
 }

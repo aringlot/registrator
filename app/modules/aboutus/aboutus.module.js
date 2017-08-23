@@ -1,9 +1,9 @@
 import angular from 'angular'
-import aboutUsComponent from './components/aboutus.component'
-import aboutUsController from './controllers/aboutus.controller'
-import RouteConfig from './routes/route.config'
+import AboutUsComponent from './components/aboutus.component'
+import AboutUsController from './controllers/aboutus.controller'
+import routeConfig from './routes/route.config'
 
 var module = angular.module('aboutUs', []);
-module.controller('AboutUsController', aboutUsController);
-module.component('aboutUs',aboutUsComponent);
-module.config(RouteConfig);
+module.controller('AboutUsController', AboutUsController);
+module.component('aboutUs',AboutUsComponent);
+module.config(routeConfig);

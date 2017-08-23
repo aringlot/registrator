@@ -3,10 +3,11 @@
   <div class="tab-header">
     {{$ctrl.title}}
   </div>
-  <a ui-sref="{{tab.url}}"
+  <a class="tab-caption"
+     ui-sref="{{tab.url}}"
+     ui-sref-active="active"
      ng-bind="tab.caption"
-     ng-class="tab.isActive"
      ng-repeat="tab in $ctrl.tabs">
   </a>
-  <ui-view name="tab"></ui-view>
+  <ui-view></ui-view>
 </div>

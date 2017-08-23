@@ -9109,6 +9109,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = _angular2.default.module('registratorApp', ['ui.router', 'common', 'aboutUs', 'home']);
 app.config(_app2.default);
+app.run(['$state', function ($state) {
+   $state.go('main');
+}]);
 
 /***/ }),
 /* 332 */
@@ -53142,6 +53145,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _header = __webpack_require__(339);
 
 var _header2 = _interopRequireDefault(_header);
@@ -53150,19 +53155,34 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var HeaderController = function HeaderController() {
-    _classCallCheck(this, HeaderController);
+var HeaderController = function () {
+    function HeaderController() {
+        var _this = this;
 
-    this.menuItems = [];
-    this.buttons = [];
+        _classCallCheck(this, HeaderController);
 
-    this.menuItems.push(new _header2.default('Header.Articles', 'articles'));
-    this.menuItems.push(new _header2.default('Header.Gallery', 'gallery'));
-    this.menuItems.push(new _header2.default('Header.AboutUs', 'aboutus'));
+        this.menuItems = [];
+        this.buttons = [];
 
-    this.buttons.push(new _header2.default('Header.Registration', 'registration'));
-    this.buttons.push(new _header2.default('Header.Login', 'login'));
-};
+        this.$onInit = function () {
+            return _this.onInit();
+        };
+    }
+
+    _createClass(HeaderController, [{
+        key: 'onInit',
+        value: function onInit() {
+            this.menuItems.push(new _header2.default('Header.Articles', 'articles'));
+            this.menuItems.push(new _header2.default('Header.Gallery', 'gallery'));
+            this.menuItems.push(new _header2.default('Header.AboutUs', 'aboutus'));
+
+            this.buttons.push(new _header2.default('Header.Registration', 'registration'));
+            this.buttons.push(new _header2.default('Header.Login', 'login'));
+        }
+    }]);
+
+    return HeaderController;
+}();
 
 exports.default = HeaderController;
 
@@ -53201,10 +53221,8 @@ Object.defineProperty(exports, "__esModule", {
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var TabController = function TabController(content) {
+var TabController = function TabController() {
     _classCallCheck(this, TabController);
-
-    this.content = content;
 };
 
 exports.default = TabController;
@@ -53287,22 +53305,35 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var aboutUsController = function aboutUsController() {
-    _classCallCheck(this, aboutUsController);
+var AboutUsController = function () {
+    function AboutUsController() {
+        var _this = this;
 
-    var ctrl = this;
+        _classCallCheck(this, AboutUsController);
 
-    ctrl.$onInit = function () {
-        ctrl.author = 'Oleksandr Yershov';
-        ctrl.description = 'AboutUs.Description';
-        ctrl.created = new Date('2017-08-22');
-        ctrl.title = 'AboutUs.Title';
-    };
-};
+        this.$onInit = function () {
+            return _this.onInit();
+        };
+    }
 
-exports.default = aboutUsController;
+    _createClass(AboutUsController, [{
+        key: 'onInit',
+        value: function onInit() {
+            this.author = 'Oleksandr Yershov';
+            this.description = 'AboutUs.Description';
+            this.created = new Date('2017-08-22');
+            this.title = 'AboutUs.Title';
+        }
+    }]);
+
+    return AboutUsController;
+}();
+
+exports.default = AboutUsController;
 
 /***/ }),
 /* 345 */
@@ -53314,7 +53345,6 @@ exports.default = aboutUsController;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = RouteConfig;
 
 var _route = __webpack_require__(346);
 
@@ -53322,14 +53352,16 @@ var _route2 = _interopRequireDefault(_route);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-RouteConfig.$inject = ['$stateProvider'];
-
-function RouteConfig($stateProvider) {
+function routeConfig($stateProvider) {
 
     for (var i = 0; i < _route2.default.length; i++) {
         $stateProvider.state(_route2.default[i]);
     }
 }
+
+routeConfig.$inject = ['$stateProvider'];
+
+exports.default = routeConfig;
 
 /***/ }),
 /* 346 */
@@ -53408,7 +53440,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var HomeController = function HomeController() {
     _classCallCheck(this, HomeController);
 
-    this.tabs = [new _tab2.default('Home.Tab1', 'tab1'), new _tab2.default('Home.Tab2', 'tab2')];
+    this.tabs = [new _tab2.default('Home.Tab1', 'main.tab1'), new _tab2.default('Home.Tab2', 'main.tab2')];
 
     this.title = 'Home.Tab.Title';
 };
@@ -53431,7 +53463,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var TabModel = function TabModel(caption, url) {
     _classCallCheck(this, TabModel);
 
-    this.isActive = false;
     this.url = url;
     this.caption = caption;
 };
@@ -53464,33 +53495,20 @@ exports.default = component;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+function tabService($http) {
+    var getTabData = function getTabData(id) {
+        return $http.get('data/tab' + id + '.data').then(function (response) {
+            return response.data;
+        });
+    };
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+    return {
+        getTabData: getTabData
+    };
+}
+tabService.$inject = ['$http'];
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var _httpService = new WeakMap();
-
-var TabService = function () {
-    function TabService($http) {
-        _classCallCheck(this, TabService);
-
-        _httpService.set(this, $http);
-    }
-
-    _createClass(TabService, [{
-        key: 'getTabData',
-        value: function getTabData(id) {
-            return _httpService.get(this).get('data/tab' + id + '.data');
-        }
-    }]);
-
-    return TabService;
-}();
-
-TabService.$inject = ['$http'];
-
-exports.default = TabService;
+exports.default = tabService;
 
 /***/ }),
 /* 352 */
@@ -53502,7 +53520,6 @@ exports.default = TabService;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = RouteConfig;
 
 var _route = __webpack_require__(353);
 
@@ -53510,14 +53527,16 @@ var _route2 = _interopRequireDefault(_route);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-RouteConfig.$inject = ['$stateProvider'];
-
-function RouteConfig($stateProvider) {
+function routeConfig($stateProvider) {
 
     for (var i = 0; i < _route2.default.length; i++) {
         $stateProvider.state(_route2.default[i]);
     }
 }
+
+routeConfig.$inject = ['$stateProvider'];
+
+exports.default = routeConfig;
 
 /***/ }),
 /* 353 */
@@ -53529,20 +53548,29 @@ function RouteConfig($stateProvider) {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var tab = {
-    name: 'tab',
-    url: '/tab{id}',
-    views: {
-        'tab': 'tab'
-    },
+var tab1 = {
+    name: 'main.tab1',
+    url: 'tab1',
+    component: 'tab',
     resolve: {
-        content: function content(TabService, $stateParams) {
-            return TabService.getTabData($stateParams.id);
+        content: function content(TabService) {
+            return TabService.getTabData('1');
         }
     }
 };
 
-exports.default = [tab];
+var tab2 = {
+    name: 'main.tab2',
+    url: 'tab2',
+    component: 'tab',
+    resolve: {
+        content: function content(TabService) {
+            return TabService.getTabData('2');
+        }
+    }
+};
+
+exports.default = [tab1, tab2];
 
 /***/ }),
 /* 354 */
@@ -53554,16 +53582,21 @@ exports.default = [tab];
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.default = RouteConfig;
-RouteConfig.$inject = ['$stateProvider'];
+routeConfig.$inject = ['$stateProvider'];
 
-function RouteConfig($stateProvider) {
+function routeConfig($stateProvider) {
+
     var helloState = {
         name: 'main',
-        url: ''
+        url: '/',
+        views: {
+            'main': 'home'
+        }
     };
     $stateProvider.state(helloState);
 }
+
+exports.default = routeConfig;
 
 /***/ })
 /******/ ]);

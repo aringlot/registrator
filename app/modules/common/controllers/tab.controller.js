@@ -1,6 +1,5 @@
 class TabController{
-    constructor(content){
-        this.content = content;
+    constructor(){
     }
 }
 

@@ -1,4 +1,4 @@
-var tabComponent = {
+const tabComponent = {
     bindings:{
         content: '<'
     },
