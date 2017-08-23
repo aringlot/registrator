@@ -1,5 +1,5 @@
-function config($stateProvider, $translateProvider, $translatePartialLoaderProvider) {
-   
+function config($stateProvider, $translateProvider) {
+    'ngInject'
     var helloState = {
         name: 'main',
         url: '/',
@@ -18,5 +18,4 @@ function config($stateProvider, $translateProvider, $translatePartialLoaderProvi
         .useCookieStorage();
 }
 
-config.$inject = ['$stateProvider', '$translateProvider'];
 export default config;
