@@ -23409,7 +23409,7 @@ __webpack_require__(351);
 
 __webpack_require__(357);
 
-var _app = __webpack_require__(366);
+var _app = __webpack_require__(365);
 
 var _app2 = _interopRequireDefault(_app);
 
@@ -58233,7 +58233,7 @@ exports.default = [aboutUs];
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(module) {
+
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -58249,55 +58249,63 @@ __webpack_require__(65);
 
 __webpack_require__(127);
 
-var _home = __webpack_require__(359);
+var _home = __webpack_require__(358);
 
 var _home2 = _interopRequireDefault(_home);
 
-var _tab = __webpack_require__(363);
+var _tab = __webpack_require__(362);
 
 var _tab2 = _interopRequireDefault(_tab);
 
-var _home3 = __webpack_require__(364);
+var _home3 = __webpack_require__(363);
 
 var _home4 = _interopRequireDefault(_home3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_angular2.default.module('home', ['ui.router', 'pascalprecht.translate']).component('home', _home2.default).factory('TabService', function ($http) {
-    'ngInject';
-
-    return new _tab2.default($http);
-}).config(_home4.default);
-exports.default = module;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(358)(module)))
+_angular2.default.module('home', ['ui.router', 'pascalprecht.translate']).component('home', _home2.default).factory('TabService', _tab2.default).config(_home4.default);
 
 /***/ }),
 /* 358 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _home = __webpack_require__(359);
+
+var _home2 = _interopRequireDefault(_home);
+
+var _homeTemplate = __webpack_require__(361);
+
+var _homeTemplate2 = _interopRequireDefault(_homeTemplate);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+<<<<<<< HEAD
+var _module = _angular2.default.module('home', []);
+_module.controller('HomeController', _home2.default);
+_module.component('home', _home4.default);
+_module.factory('TabService', function ($http) {
+    'ngInject';
+
+    return new _tab2.default($http);
+});
+_module.config(_route2.default);
+=======
+var component = {
+    template: _homeTemplate2.default,
+    controller: _home2.default,
+    controllerAs: 'VM'
 };
+exports.default = component;
+>>>>>>> feature/basic_layout
 
+exports.default = _module;
 
 /***/ }),
 /* 359 */
@@ -58310,37 +58318,9 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _home = __webpack_require__(360);
-
-var _home2 = _interopRequireDefault(_home);
-
-var _homeTemplate = __webpack_require__(362);
-
-var _homeTemplate2 = _interopRequireDefault(_homeTemplate);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var component = {
-    template: _homeTemplate2.default,
-    controller: _home2.default,
-    controllerAs: 'VM'
-};
-exports.default = component;
-
-/***/ }),
-/* 360 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _tab = __webpack_require__(361);
+var _tab = __webpack_require__(360);
 
 var _tab2 = _interopRequireDefault(_tab);
 
@@ -58396,7 +58376,7 @@ var HomeController = function () {
 exports.default = HomeController;
 
 /***/ }),
-/* 361 */
+/* 360 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58418,13 +58398,13 @@ var TabModel = function TabModel(caption, url) {
 exports.default = TabModel;
 
 /***/ }),
-/* 362 */
+/* 361 */
 /***/ (function(module, exports) {
 
 module.exports = "<section class=\"home\" ng-cloak>\r\n<div class=\"tab-control\">\r\n  <div class=\"tab-header\" \r\n       translate>\r\n      Home.Tab.Title\r\n  </div>\r\n  <a class=\"tab-caption\"\r\n     ui-sref=\"{{tab.url}}\"\r\n     ui-sref-active=\"active\"\r\n     ng-bind=\"tab.caption|translate\"\r\n     ng-repeat=\"tab in VM.tabs\">\r\n  </a>\r\n  <ui-view></ui-view>\r\n</div>\r\n"
 
 /***/ }),
-/* 363 */
+/* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58462,7 +58442,7 @@ var TabService = function () {
 exports.default = TabService;
 
 /***/ }),
-/* 364 */
+/* 363 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58472,7 +58452,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _route = __webpack_require__(365);
+var _route = __webpack_require__(364);
 
 var _route2 = _interopRequireDefault(_route);
 
@@ -58492,7 +58472,7 @@ config.$inject = ['$stateProvider', '$translatePartialLoaderProvider'];
 exports.default = config;
 
 /***/ }),
-/* 365 */
+/* 364 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58526,7 +58506,7 @@ var tab2 = {
 exports.default = [tab1, tab2];
 
 /***/ }),
-/* 366 */
+/* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58535,7 +58515,11 @@ exports.default = [tab1, tab2];
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+<<<<<<< HEAD
+function routeConfig($stateProvider) {
+=======
 function config($stateProvider, $translateProvider, $translatePartialLoaderProvider) {
+>>>>>>> feature/basic_layout
 
     var helloState = {
         name: 'main',
@@ -58551,8 +58535,13 @@ function config($stateProvider, $translateProvider, $translatePartialLoaderProvi
     }).preferredLanguage('en').useLoaderCache(true).useCookieStorage();
 }
 
+<<<<<<< HEAD
+routeConfig.$inject = ['$stateProvider'];
+exports.default = routeConfig;
+=======
 config.$inject = ['$stateProvider', '$translateProvider'];
 exports.default = config;
+>>>>>>> feature/basic_layout
 
 /***/ })
 /******/ ]);

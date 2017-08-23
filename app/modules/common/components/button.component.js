@@ -1,12 +1,15 @@
+import Controller from 'common/controllers/button.controller'
+import template from 'views/common/button.template.html'
+
 const component = {
     bindings:{
         name: '<',
         url: '<',
         customClass: '<'
     },
-    templateUrl: './views/common/button.template.html',
-    controller: 'ButtonController',
-    controllerAs: 'buttonCtrl'
+    template: template,
+    controller: Controller,
+    controllerAs: 'VM'
 };
 
 export default component;

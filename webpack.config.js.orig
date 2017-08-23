@@ -23,7 +23,10 @@ module.exports = {
   resolve: {
     modules: ['bower_components', 'node_modules'],
     alias: {
+<<<<<<< HEAD
       registrator: path.resolve(__dirname, 'app/modules'),
+      "angular-mocks": path.resolve(__dirname, 'app/bower_components/angular-mocks/angular-mocks')
+=======
       "registrator": path.resolve(__dirname, 'app/modules'),
       "common": path.resolve(__dirname, 'app/modules/common'),
       "aboutus": path.resolve(__dirname, 'app/modules/aboutus'),
@@ -33,8 +36,8 @@ module.exports = {
       "angular-ui-router": path.resolve(__dirname, 'app/bower_components/angular-ui-router/release/angular-ui-router'),
       'angular-cookie' : path.resolve(__dirname, 'app/bower_components/angular-cookies/angular-cookies'),
       'angular-translate-storage-cookie': path.resolve(__dirname, 'app/bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie'),
-      'angular-translate-loader-partial' : path.resolve(__dirname, 'app/bower_components/angular-translate-loader-partial/angular-translate-loader-partial'),
-      "angular-mocks": path.resolve(__dirname, 'app/bower_components/angular-mocks/angular-mocks')
+      'angular-translate-loader-partial' : path.resolve(__dirname, 'app/bower_components/angular-translate-loader-partial/angular-translate-loader-partial')
+>>>>>>> feature/basic_layout
     }
   },
   output: {
