@@ -1,5 +1,12 @@
 //jshint strict: false
-module.exports = function(config) {
+module.exports = function (config) {
+
+  function configureWebpack(webpackConfigFunction) {
+    var webpackConfig = require('./webpack.config');
+    webpackConfig.entry = undefined; // karma will pass the proper argument for entry
+    return webpackConfig;
+  }
+
   config.set({
 
     basePath: './app',
@@ -8,9 +15,16 @@ module.exports = function(config) {
       'bower_components/angular/angular.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-mocks/angular-mocks.js',
-      'components/**/*.js',
-      'view*/**/*.js'
+      'bower_components/angular-ui-router/release/angular-ui-router',
+      'modules/**/tests/*.spec.js'
     ],
+
+    preprocessors: {
+      // add webpack as preprocessor
+      'modules/**/tests/*.spec.js': ['webpack'],
+    },
+
+    webpack: configureWebpack(),
 
     autoWatch: true,
 
@@ -20,9 +34,9 @@ module.exports = function(config) {
 
     plugins: [
       'karma-chrome-launcher',
-      'karma-firefox-launcher',
       'karma-jasmine',
-      'karma-junit-reporter'
+      'karma-junit-reporter',
+      'karma-webpack'
     ],
 
     junitReporter: {

@@ -53390,6 +53390,10 @@ exports.default = [aboutUs];
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _angular = __webpack_require__(49);
 
 var _angular2 = _interopRequireDefault(_angular);
@@ -53415,8 +53419,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _module = _angular2.default.module('home', []);
 _module.controller('HomeController', _home2.default);
 _module.component('home', _home4.default);
-_module.factory('TabService', _tab2.default);
+_module.factory('TabService', function ($http) {
+    'ngInject';
+
+    return new _tab2.default($http);
+});
 _module.config(_route2.default);
+
+exports.default = _module;
 
 /***/ }),
 /* 348 */
@@ -53495,20 +53505,33 @@ exports.default = component;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-function tabService($http) {
-    var getTabData = function getTabData(id) {
-        return $http.get('data/tab' + id + '.data').then(function (response) {
-            return response.data;
-        });
-    };
 
-    return {
-        getTabData: getTabData
-    };
-}
-tabService.$inject = ['$http'];
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-exports.default = tabService;
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var _httpService = new WeakMap();
+
+var TabService = function () {
+    function TabService($http) {
+        _classCallCheck(this, TabService);
+
+        _httpService.set(this, $http);
+    }
+
+    _createClass(TabService, [{
+        key: 'getTabData',
+        value: function getTabData(id) {
+            return _httpService.get(this).get('data/tab' + id + '.data').then(function (response) {
+                return response.data;
+            });
+        }
+    }]);
+
+    return TabService;
+}();
+
+exports.default = TabService;
 
 /***/ }),
 /* 352 */
@@ -53582,8 +53605,6 @@ exports.default = [tab1, tab2];
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-routeConfig.$inject = ['$stateProvider'];
-
 function routeConfig($stateProvider) {
 
     var helloState = {
@@ -53596,6 +53617,7 @@ function routeConfig($stateProvider) {
     $stateProvider.state(helloState);
 }
 
+routeConfig.$inject = ['$stateProvider'];
 exports.default = routeConfig;
 
 /***/ })
