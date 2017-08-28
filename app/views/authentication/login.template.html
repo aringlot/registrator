@@ -1,0 +1,38 @@
+<section class="login">
+  <h2>Login.Title</h2>
+  <form name="frmLogin"
+        novalidate
+        ng-submit="vm.onSubmit()">
+    <div>
+      <span>Login.Login</span>
+      <input name="login"
+             type="text" 
+             ng-model="vm.login" 
+             required />
+      <span class="messages"
+             ng-messages="frmLogin.password.$error"
+             ng-show="frmLogin.login.$invalid && frmLogin.login.$dirty">
+        <div ng-message="required">Error.Required</div>
+      </span>
+    </div>
+    <div>
+      <span>Login.Password</span>
+      <input name="password"
+             type="password" 
+             ng-model="vm.password" 
+             required />
+      <span class="messages"
+            ng-messages="frmLogin.password.$error"
+            ng-show="frmLogin.password.$invalid && frmLogin.password.$dirty">
+        <div ng-message="required">Error.Required</div>
+      </span>
+    </div>
+    <div class="buttons">
+      <input id="submit" 
+             type="submit"  
+             value="Login.Submit"
+             ng-show="frmLogin.$valid"/>
+    </div>
+    <span ng-bind="vm.loginResult|json"></span>
+  </form>
+</section>
