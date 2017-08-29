@@ -1,0 +1,10 @@
+{
+    "Common.Header.Articles": "Articles",
+    "Common.Header.Gallery": "Gallery",
+    "Common.Header.AboutUs" : "About us",
+    "Common.Header.Registration" : "Registration",
+    "Common.Header.Login": "Login",
+    "Common.Home" : "Home",
+    "Language.En" : "English",
+    "Language.De" : "German"
+}

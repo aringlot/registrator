@@ -20,6 +20,7 @@
     "karma-junit-reporter": "^0.4.1",
     "karma-webpack": "^2.0.4",
     "protractor": "^4.0.9",
+    "raw-loader": "^0.5.1",
     "webpack": "^3.5.5"
   },
   "scripts": {

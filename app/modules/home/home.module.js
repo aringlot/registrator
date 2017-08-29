@@ -1,16 +1,19 @@
 import angular from 'angular'
-import HomeController from './controllers/home.controller'
-import homeComponent from './components/home.component'
-import TabService from './services/tab.service'
-import config from './routes/route.config'
+import 'angular-ui-router'
+import 'angular-translate'
+import 'angular-translate-loader-partial'
 
-var module = angular.module('home', []);
-module.controller('HomeController', HomeController);
-module.component('home', homeComponent);
-module.factory('TabService', $http => {
-    'ngInject'
-    return new TabService($http);
-});
-module.config(config);
+import homeComponent from 'home/components/home.component'
+import TabService from 'home/services/tab.service'
+import config from 'home/config/home.config'
+
+var module = angular
+    .module('home', ['ui.router','pascalprecht.translate'])
+    .component('home', homeComponent)
+    .factory('TabService', $http => {
+    	'ngInject'
+        return new TabService($http);
+    })
+    .config(config);
 
 export default module;

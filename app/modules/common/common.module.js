@@ -1,21 +1,16 @@
 import angular from 'angular'
+import 'angular-translate'
 
-import ButtonController from './controllers/button.controller';
-import buttonComponent from './components/button.component';
+import buttonComponent from 'common/components/button.component';
+import headerComponent from 'common/components/header.component'
+import tabComponent from 'common/components/tab.component'
+import config from 'common/config/common.config'
 
-import headerComponent from './components/header.component'
-import HeaderController from  './controllers/header.controller'
+var module = angular
+    .module('common', ['pascalprecht.translate'])
+    .component('customButton', buttonComponent)
+    .component('header', headerComponent)
+    .component('tab', tabComponent)
+    .config(config);
 
-import TabController from './controllers/tab.controller'
-import tabComponent from './components/tab.component'
-
-var module = angular.module('common', []);
-
-module.controller('ButtonController', ButtonController);
-module.component('customButton', buttonComponent);
-
-module.controller('HeaderController', HeaderController);
-module.component('header', headerComponent);
-
-module.controller('TabController', TabController);
-module.component('tab', tabComponent);
+export default module;

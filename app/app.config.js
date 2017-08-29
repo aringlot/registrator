@@ -1,5 +1,5 @@
-function routeConfig($stateProvider) {
-   
+function config($stateProvider, $translateProvider) {
+    'ngInject'
     var helloState = {
         name: 'main',
         url: '/',
@@ -8,7 +8,14 @@ function routeConfig($stateProvider) {
         }
     };
     $stateProvider.state(helloState);
+
+    $translateProvider
+        .useLoader('$translatePartialLoader', {
+            urlTemplate: '/modules/{part}/translations/{lang}.json'
+        })
+        .preferredLanguage('en')
+        .useLoaderCache(true)
+        .useCookieStorage();
 }
 
-routeConfig.$inject = ['$stateProvider'];
-export default routeConfig;
+export default config;

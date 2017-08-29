@@ -3,9 +3,7 @@ const tab1 = {
     url: 'tab1',
     component: 'tab',
     resolve:{
-        content: (TabService) => {
-            return TabService.getTabData('1');
-        }
+        content: TabService => TabService.getTabData('1')
     }
 };
 
@@ -14,9 +12,7 @@ const tab2 = {
     url: 'tab2',
     component: 'tab',
     resolve:{
-        content: (TabService) => { 
-            return TabService.getTabData('2');
-        }
+        content: TabService => TabService.getTabData('2')
     }
 };
 
