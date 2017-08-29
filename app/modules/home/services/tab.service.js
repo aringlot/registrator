@@ -9,9 +9,7 @@ class TabService{
         return _httpService
             .get(this)
             .get('data/tab' + id + '.data')
-            .then(function(response){
-                return response.data;
-            });
+            .then(response => response.data);
     }
 }
 

@@ -7,7 +7,6 @@ describe('Tab service', () => {
     beforeEach(angular.mock.inject(($http, $httpBackend) => {
         httpMock = $httpBackend;
         service = new TabService($http);
-        
     }));
 
     it('should request data from server by url', () => {
