@@ -32,11 +32,23 @@ module.exports = function (config) {
 
     browsers: ['Chrome'],
 
+    reporters: ['coverage', 'progress'],
+
+    coverageReporter: {
+      dir: 'coverage',
+      reporters: [
+          { type: 'text' },
+          { type: 'text-summary' },
+          { type: 'html' }
+      ]
+    },
+
     plugins: [
       'karma-chrome-launcher',
       'karma-jasmine',
       'karma-junit-reporter',
-      'karma-webpack'
+      'karma-webpack',
+      'karma-coverage'
     ],
 
     junitReporter: {

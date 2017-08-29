@@ -8,6 +8,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-istanbul": "^4.1.4",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "bower": "^1.7.7",
@@ -15,6 +16,7 @@
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.3",
+    "karma-coverage": "^1.1.1",
     "karma-firefox-launcher": "^0.1.7",
     "karma-jasmine": "^0.3.8",
     "karma-junit-reporter": "^0.4.1",
