@@ -15,6 +15,7 @@ function config($stateProvider, $translateProvider) {
         })
         .preferredLanguage('en')
         .useLoaderCache(true)
+        .useSanitizeValueStrategy('sanitize')
         .useCookieStorage();
 }
 

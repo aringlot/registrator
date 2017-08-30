@@ -4,6 +4,7 @@ import 'angular-translate'
 import 'angular-cookies'
 import 'angular-translate-storage-cookie'
 import 'angular-translate-loader-partial'
+import 'angular-sanitize'
 
 import commonModule from 'common/common.module'
 import aboutUsModule from 'aboutus/aboutus.module'
@@ -14,6 +15,7 @@ import config from './app.config'
 angular
     .module('registratorApp', [
         'ui.router',
+        'ngSanitize',
         'pascalprecht.translate', 
         'ngCookies', 
         commonModule.name, 

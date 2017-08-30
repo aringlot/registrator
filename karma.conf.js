@@ -9,19 +9,19 @@ module.exports = function (config) {
 
   config.set({
 
-    basePath: './app',
+    basePath: './',
 
     files: [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-route/angular-route.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'bower_components/angular-ui-router/release/angular-ui-router',
-      'modules/**/tests/*.spec.js'
+      "node_modules/babel-polyfill/dist/polyfill.js",
+      'app/bower_components/angular/angular.js',
+      'app/bower_components/angular-route/angular-route.js',
+      'app/bower_components/angular-mocks/angular-mocks.js',
+      'app/modules/**/tests/*.spec.js'
     ],
 
     preprocessors: {
       // add webpack as preprocessor
-      'modules/**/tests/*.spec.js': ['webpack'],
+      'app/modules/**/tests/*.spec.js': ['webpack'],
     },
 
     webpack: configureWebpack(),
