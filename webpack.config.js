@@ -23,7 +23,6 @@ module.exports = {
   resolve: {
     modules: ['bower_components', 'node_modules'],
     alias: {
-      registrator: path.resolve(__dirname, 'app/modules'),
       "registrator": path.resolve(__dirname, 'app/modules'),
       "common": path.resolve(__dirname, 'app/modules/common'),
       "aboutus": path.resolve(__dirname, 'app/modules/aboutus'),

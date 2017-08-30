@@ -6,7 +6,8 @@ const tabComponent = {
         content: '<'
     },
     template: template,
-    controller: Controller
+    controller: Controller,
+    controllerAs: 'vm'
 };
 
 export default tabComponent;
