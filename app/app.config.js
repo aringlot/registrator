@@ -3,8 +3,8 @@ function config($stateProvider, $translateProvider) {
     var helloState = {
         name: 'main',
         url: '/',
-        views:{
-            'main':'home'
+        views: {
+            'main': 'home'
         }
     };
     $stateProvider.state(helloState);

@@ -2,7 +2,7 @@ import Controller from 'common/controllers/button.controller'
 import template from 'views/common/button.template.html'
 
 const component = {
-    bindings:{
+    bindings: {
         name: '<',
         url: '<',
         customClass: '<'
