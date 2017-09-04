@@ -17,6 +17,10 @@ module.exports = {
         {
           test: /\.html$/,
           use: 'raw-loader'
+        },
+        {
+          test: /\.css$/,
+          use: [ 'style-loader', 'css-loader' ]
         }
     ]
   },
@@ -28,6 +32,7 @@ module.exports = {
       "common": path.resolve(__dirname, 'app/modules/common'),
       "aboutus": path.resolve(__dirname, 'app/modules/aboutus'),
       "home": path.resolve(__dirname, 'app/modules/home'),
+      "gallery": path.resolve(__dirname, 'app/modules/gallery'),
       "views": path.resolve(__dirname, 'app/views'),
       "angular-translate": path.resolve(__dirname, 'app/bower_components/angular-translate/angular-translate') ,
       "angular-ui-router": path.resolve(__dirname, 'app/bower_components/angular-ui-router/release/angular-ui-router'),
@@ -37,6 +42,7 @@ module.exports = {
       "angular-mocks": path.resolve(__dirname, 'app/bower_components/angular-mocks/angular-mocks')
     }
   },
+  devtool: "source-map",
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, './app/dist')

@@ -8,3 +8,4 @@ tmp
 .orig
 /npm-debug.*
 app/dist/bundle.js
+app/dist/bundle.js.map

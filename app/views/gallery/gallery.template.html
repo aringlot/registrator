@@ -1,0 +1,36 @@
+<section class="gallery">
+  <container>
+    <h2 class="text-center" 
+        translate>
+      Gallery.Title
+    </h2>
+    <form class="form-horizontal"
+          name="galleryFilter">
+      <f-group invalid="galleryFilter.topic.$dirty && galleryFilter.topic.$invalid">
+        <column size="2">
+          <label class="control-label"
+                for="topic"
+                translate>
+            Gallery.Topic
+          </label>
+        </column>
+        <column size="10">
+          <input class="form-control" 
+                id="topic" 
+                name="topic" 
+                type="text"
+                ng-model="vm.topic"
+                existent-topic>
+          <span ng-messages="galleryFilter.topic.$errors"
+                ng-show="galleryFilter.topic.$dirty && galleryFilter.topic.$invalid">
+            <span class="help-block"
+                  ng-message="isExistentTopic"
+                  translate>
+              Gallery.Errors.TopicNotExists
+            </span>
+          </span>
+        </column>
+      </f-group>
+    </form>
+  </container>
+</section>
