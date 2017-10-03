@@ -1,9 +1,13 @@
 import angular from 'angular'
-import AboutUsComponent from './components/aboutus.component'
-import AboutUsController from './controllers/aboutus.controller'
-import routeConfig from './routes/route.config'
+import 'angular-ui-router'
+import 'angular-translate'
 
-var module = angular.module('aboutUs', []);
-module.controller('AboutUsController', AboutUsController);
-module.component('aboutUs',AboutUsComponent);
-module.config(routeConfig);
+import AboutUsComponent from 'aboutus/components/aboutus.component'
+import routeConfig from 'aboutus/config/aboutus.config'
+
+var module = angular
+    .module('aboutUs', ['ui.router', 'pascalprecht.translate'])
+    .component('aboutUs',AboutUsComponent)
+    .config(routeConfig);
+
+export default module;

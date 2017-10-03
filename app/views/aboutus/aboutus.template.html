@@ -1,10 +1,11 @@
-<section class="aboutUs" 
+<section class="about-us" 
          ng-cloak>
-  <h3>{{$ctrl.title}}</h3>
-  <div class="descriptoin">
-    {{$ctrl.description}}
+  <h3 translate="AboutUs.Title">
+  </h3>
+  <div class="descriptoin"
+       translate="AboutUs.Description">
   </div>
   <div class="credential">
-    {{$ctrl.author}} {{$ctrl.created|date}}
+    {{vm.author}} {{vm.created|date}}
   </div>
 </section>

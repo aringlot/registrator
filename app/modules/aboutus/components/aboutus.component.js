@@ -1,6 +1,10 @@
+import Controller from 'aboutus/controllers/aboutus.controller'
+import template from 'views/aboutus/aboutus.template.html'
+
 const component = {
-    templateUrl: './views/aboutus/aboutus.template.html',
-    controller: 'AboutUsController'
+    template: template,
+    controller: Controller,
+    controllerAs: 'vm'
 }
 
 export default component;

@@ -1,11 +1,15 @@
 import angular from 'angular'
 import angularCookies from 'angular-cookies'
 
-import './bower_components/angular-ui-router/release/angular-ui-router'
+import 'angular-ui-router'
+import 'angular-translate'
+import 'angular-cookies'
+import 'angular-translate-storage-cookie'
+import 'angular-translate-loader-partial'
 
-import './modules/common/common.module'
-import './modules/aboutus/aboutus.module'
-import './modules/home/home.module'
+import commonModule from 'common/common.module'
+import aboutUsModule from 'aboutus/aboutus.module'
+import homeModule from 'home/home.module'
 import authenticationModule from './modules/authentication/authentication.module'
 import coreModule from 'core/core.module'
 
@@ -14,17 +18,20 @@ import config from './app.config'
 angular
     .module('registratorApp', [
         'ui.router',
+        'pascalprecht.translate', 
         'ngCookies', 
-        'common', 
-        'aboutUs', 
-        'home', 
+        commonModule.name, 
+        aboutUsModule.name, 
+        homeModule.name,
         authenticationModule.name, 
-        coreModule.name]);
-app.config(config);
-app.run(($state, $rootScope, AUTH_CONST) => {
-    'ngInject'
-    $state.go('main');
-    $rootScope.$on(AUTH_CONST.loginSuccess, () => {
-        $state.go('aboutus');
+        coreModule.name])
+    .config(config)
+    .run(($state, $rootScope, AUTH_CONST) => {
+        'ngInject'
+        $state.go('main');
+        $rootScope.$on(AUTH_CONST.loginSuccess, () => {
+            $state.go('aboutus');
+        });
+
+        $rootScope.$on('$translatePartialLoaderStructureChanged', () => $translate.refresh());
     });
-});

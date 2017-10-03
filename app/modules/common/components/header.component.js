@@ -1,7 +1,10 @@
+import Controller from 'common/controllers/header.controller'
+import template from 'views/common/header.template.html'
+
 const component =  {
-    templateUrl: './views/common/header.template.html',
-    controller: 'HeaderController',
-    controllerAs: "headerCtrl"
+    template : template,
+    controller: Controller,
+    controllerAs: "vm"
 };
 
 export default component;

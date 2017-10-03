@@ -8,6 +8,8 @@ tmp
 #Ignore files built by Visual Studio
 *.user
 *.aps
+.orig
+/npm-debug.*
 *.pch
 *.vspscc
 *_i.c
