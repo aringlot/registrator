@@ -5,6 +5,27 @@ bower_components/
 tmp
 .DS_Store
 .idea
+#Ignore files built by Visual Studio
+*.user
+*.aps
 .orig
 /npm-debug.*
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.bak
+*.cache
+*.ilk
+*.log
+[Bb]in
+[Dd]ebug*/
+*.sbr
+obj/
+[Rr]elease*/
+_ReSharper*
+storage.ide
+
 app/dist/bundle.js
