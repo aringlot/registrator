@@ -21,6 +21,7 @@
     "karma-webpack": "^2.0.4",
     "protractor": "^4.0.9",
     "raw-loader": "^0.5.1",
+    "source-map-loader": "^0.2.2",
     "webpack": "^3.5.5"
   },
   "scripts": {
@@ -40,6 +41,11 @@
     "update-index-async": "node -e \"var fs=require('fs'),indexFile='app/index-async.html',loaderFile='app/bower_components/angular-loader/angular-loader.min.js',loaderText=fs.readFileSync(loaderFile,'utf-8').split(/sourceMappingURL=angular-loader.min.js.map/).join('sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map'),indexText=fs.readFileSync(indexFile,'utf-8').split(/\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/).join('//@@NG_LOADER_START@@\\n'+loaderText+'    //@@NG_LOADER_END@@');fs.writeFileSync(indexFile,indexText);\""
   },
   "dependencies": {
-    "angular-cookies": "^1.6.4"
+    "angular-cookies": "^1.6.4",
+    "angular-signalr-hub": "^1.6.3",
+    "expose-loader": "^0.7.3",
+    "jquery": "^3.2.1",
+    "script-loader": "^0.7.2",
+    "signalr": "^2.2.2"
   }
 }

@@ -1,0 +1,51 @@
+<section class="chat">
+  <form name="frmJoinGroup"
+        novalidate
+        ng-submit="vm.joinGroup()">
+    <div class="form-group">
+      <label for="group">
+        Group name
+      </label>
+      <input type="text" 
+             ng-model="vm.group"/>
+    </div>
+    <input type="submit" 
+           value="Join group" />
+  </form>
+    
+  <form name="frmLeaveGroup"
+        novalidate
+        ng-submit="vm.leaveGroup()">
+    <div class="form-group">
+      <label for="group">
+        Group name
+      </label>
+      <input type="text" 
+             ng-model="vm.group"/>
+    </div>
+    <input type="submit" 
+           value="Leave group" />
+  </form>
+
+  <form name="frmSendMessage"
+        novalidate
+        ng-submit="vm.send()">
+    <div class="form-group">
+      <label for="group">
+        Message
+      </label>
+      <input type="text" 
+             ng-model="vm.message"/>
+    </div>
+    <input type="submit" 
+           value="Submit message" />
+  </form>
+
+  <div>
+    <textarea cols="30" 
+              name="taMessage"
+              rows="10"
+              ng-bind="vm.lastMessage">
+    </textarea>
+  </div>
+</section>
