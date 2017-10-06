@@ -1,17 +1,17 @@
-import {doIfConnected} from 'core/services/chat-hub.helper'
-
-const _isConnected = new WeakMap();
-
 const factory =
     (
         $rootScope,
-        Hub, HUB_SETTINGS,
+        Hub,
+        HUB_SETTINGS,
         HUB_CLIENT_EVENTS,
         HUB_EVENTS
     ) => {
         '$ngInject'
 
         var hub = new Hub(HUB_SETTINGS.CHAT_HUB, {
+
+            pingInterval: 1000,
+
             rootPath: HUB_SETTINGS.CHAT_HUB_URL,
 
             listeners: {
@@ -26,15 +26,14 @@ const factory =
 
             stateChanged: state => {
                 switch (state.newState) {
-                    case $.signalR.connectionState.connecting:
+                    case HUB_EVENTS.connecting:
                         break;
-                    case $.signalR.connectionState.connected:
-                        $rootScope.$broadcast(HUB_EVENTS.connected);
+                    case HUB_EVENTS.connected:
                         break;
-                    case $.signalR.connectionState.reconnecting:
+                    case HUB_EVENTS.reconnecting:
                         //your code here
                         break;
-                    case $.signalR.connectionState.disconnected:
+                    case HUB_EVENTS.disconnected:
                         //your code here
                         break;
                 }
@@ -43,22 +42,16 @@ const factory =
             autoConnect: false
         });
 
-        const eventSource = {
-            scope: $rootScope,
-            event: HUB_EVENTS.connected            
-        }
-
         const service = {
-            connect: () => hub.connect(),
-            sendMessageToAll: message => doIfConnected(_isConnected.get(service), eventSource, () => hub.Send(message)),
-            sendMessageToGroup: (message, groupName) => doIfConnected(_isConnected.get(service), eventSource, () => hub.Send(message, groupName)),
-            joinGroup: name => doIfConnected(_isConnected.get(service), eventSource, () => hub.JoinGroup(name)),
-            leaveGroup: name => doIfConnected(_isConnected.get(service), eventSource, () => hub.LeaveGroup(name))
+            connect: () => {
+                hub.promise = hub.connect();
+                return hub.promise;
+            },
+            sendMessageToAll: message => hub.promise.then(() => hub.Send(message)),
+            sendMessageToGroup: (message, groupName) => hub.promise.then(() => hub.Send(message, groupName)),
+            joinGroup: name => hub.promise.then(() => hub.JoinGroup(name)),
+            leaveGroup: name => hub.promise.then(() => hub.LeaveGroup(name))
         };
-
-        $rootScope.$on(HUB_EVENTS.connected, () => {
-            _isConnected.set(service, true);
-        });
 
         return service;
     };
